@@ -1,0 +1,84 @@
+import { DAYS_OF_WEEK_IN_ORDER } from "@/constants";
+import { relations } from "drizzle-orm";
+import {
+  boolean,
+  index,
+  integer,
+  pgEnum,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+} from "drizzle-orm/pg-core";
+
+/* reusable timestamps */
+const createdAt = timestamp("created_at").notNull().defaultNow();
+const updatedAt = timestamp("updated_at")
+  .notNull()
+  .defaultNow()
+  .$onUpdate(() => new Date());
+
+/* EVENTS */
+export const EventTable = pgTable(
+  "events",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    name: text("name").notNull(),
+    description: text("description"),
+    durationInMinutes: integer("duration_in_minutes").notNull(),
+    clerkUserId: text("clerk_user_id").notNull(),
+    isActive: boolean("is_active").notNull().default(true),
+    createdAt,
+    updatedAt,
+  },
+  (table) => [
+    index("events_clerk_user_id_idx").on(table.clerkUserId),
+  ]
+);
+
+/* SCHEDULES */
+export const ScheduleTable = pgTable("schedules", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  timezone: text("timezone").notNull(),
+  clerkUserId: text("clerk_user_id").notNull().unique(),
+  createdAt,
+  updatedAt,
+});
+
+/* ENUM */
+export const scheduleDayOfWeekEnum = pgEnum(
+  "day_of_week",
+  DAYS_OF_WEEK_IN_ORDER
+);
+
+/* SCHEDULE AVAILABILITIES */
+export const ScheduleAvailabilityTable = pgTable(
+  "schedule_availabilities",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    scheduleId: uuid("schedule_id")
+      .notNull()
+      .references(() => ScheduleTable.id, { onDelete: "cascade" }),
+    startTime: text("start_time").notNull(),
+    endTime: text("end_time").notNull(),
+    dayOfWeek: scheduleDayOfWeekEnum("day_of_week").notNull(),
+  },
+  (table) => [
+    index("schedule_availabilities_schedule_id_idx").on(table.scheduleId),
+  ]
+);
+
+/* RELATIONS */
+export const scheduleRelations = relations(ScheduleTable, ({ many }) => ({
+  availabilities: many(ScheduleAvailabilityTable),
+}));
+
+export const ScheduleAvailabilityRelations = relations(
+  ScheduleAvailabilityTable,
+  ({ one }) => ({
+    schedule: one(ScheduleTable, {
+      fields: [ScheduleAvailabilityTable.scheduleId],
+      references: [ScheduleTable.id],
+    }),
+  })
+);

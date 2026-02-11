@@ -1,0 +1,17 @@
+<svg width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Calendar Icon -->
+  <rect x="5" y="10" width="40" height="40" rx="8" fill="#8A2BE2"/>
+  <rect x="10" y="15" width="30" height="25" rx="4" fill="white"/>
+  <rect x="15" y="25" width="20" height="4" rx="2" fill="#FFA500"/>
+  <rect x="15" y="33" width="20" height="4" rx="2" fill="#FF4B4B"/>
+  <rect x="20" y="10" width="4" height="8" rx="2" fill="#00C853"/>
+  <rect x="32" y="10" width="4" height="8" rx="2" fill="#00C853"/>
+
+  <!-- Check Mark -->
+  <path d="M33 37 L37 41 L45 31" stroke="#00C853" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Text: Slotify -->
+  <text x="60" y="40" font-family="Poppins, sans-serif" font-weight="600" font-size="28" fill="#8A2BE2">
+    slotify
+  </text>
+</svg>
