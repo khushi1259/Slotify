@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Slotify Booking App by Khushi Mehta",
+  title: "Slotify – Smart Scheduling Platform",
   description:
-    "Slotify is a simple and efficient booking and calendar app that helps you manage events, meetings, and schedules with ease.",
+    "Slotify is a modern smart scheduling platform that helps professionals manage events and meetings effortlessly",
   verification: {
     google: "QgSYseffaaetuz1O1M30PK__ImXaSY5yw4EWThkAxAQ",
   },

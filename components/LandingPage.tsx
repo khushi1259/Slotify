@@ -19,7 +19,7 @@ export default function LandingPage() {
                 />
 
                 <h1 className="text-3xl font-black mt-4">
-                    Your Time, Perfectly Planned
+                    Slotify – Smart Scheduling Platform
                 </h1>
 
                 <p className="font-extralight max-w-lg mt-2">
