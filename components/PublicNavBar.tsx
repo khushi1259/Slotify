@@ -8,12 +8,11 @@ export default function PublicNavBar() {
         <nav className="flex justify-between items-center fixed z-50 w-full h-28 bg-gray-300 px-10 gap-4 shadow-2xl">
             {/* Logo */}
             <Link href="/login" className="flex items-center gap-1 hover:scale-150 duration-500 ">
-            <Image
-                src="/assets/slotify.svg"
-                width={60}
-                height={60}
-                alt="slotify logo"
-            />
+            <img
+  src="/assets/slotify.svg"
+  alt="Slotify"
+  className="w-[180px] h-[180px] hover:scale-100 duration-300"
+/>
             </Link>
 
             {/* Nav Links */}
