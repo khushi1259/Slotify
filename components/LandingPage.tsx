@@ -19,7 +19,7 @@ export default function LandingPage() {
                 />
 
                 <h1 className="text-3xl font-black mt-4">
-                    Slotify – Smart Scheduling Platform
+                    Slotify by Khushi Mehta
                 </h1>
 
                 <p className="font-extralight max-w-lg mt-2">

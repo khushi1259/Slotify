@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Slotify – Smart Scheduling Platform",
+  title: "Slotify by Khushi Mehta",
   description:
     "Slotify is a modern smart scheduling platform that helps professionals manage events and meetings effortlessly",
   verification: {
