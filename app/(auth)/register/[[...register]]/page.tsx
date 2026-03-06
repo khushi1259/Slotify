@@ -12,7 +12,7 @@ export default function RegisterPage() {
       />
 
       <div className="mt-3">
-        <SignUp signInUrl="/sign-in" />
+       <SignUp signInUrl="/login" />
       </div>
     </main>
   );
